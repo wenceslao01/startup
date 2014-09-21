@@ -22,7 +22,7 @@ app.get('/', function (req, res) {
   res.send('Twitter API is running...');
 });
 
-//
+//http://localhost:3000/timeline?count=100
 app.get('/timeline', function (req, res) {
     T.get('statuses/home_timeline', req.query, function(err, data, response) {
       return res.json(data);
