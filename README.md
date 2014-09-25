@@ -110,7 +110,7 @@ Developers that move faster than average can go ahead and complete as much exerc
   * To start the server, from a command line interface, run `http-server` in the directory where you will clone the startup repo
   * Open your web browser and point to localhost:PORT (the `http-server` should have outputted the number of PORT you should use)
 
-6. Fork this repo https://github.com/intii/startup to use as a base to host the project code.
+6. Fork this repo https://github.com/bootcamp-bahia/startup to use as a base to host the project code.
 
 → [index](#index)
 
