@@ -1,6 +1,6 @@
 # HTML5 BootCamp base folders layout
 
-Please, use this repository as a base for you training phase. The idea is
+Please, use this repository as a base for you training phase. The idea isht
 fork this project so everyone use the same folder structure for the
 exercises.
 
@@ -208,8 +208,6 @@ Now that you know which are the three pilars of a web application's UI, it's tim
 
 * Annotated ECMAScript 5.1: [http://es5.github.com/](http://es5.github.com/)
 
-* JSONP and CORS: [http://json-p.org/](http://json-p.org/) - [http://www.html5rocks.com/en/tutorials/cors/](http://www.html5rocks.com/en/tutorials/cors/)
-
 #####Practice:#####
 
 1. Create a basic index.html file. Use correct doctype, and tags. Add jQuery's latest version.
@@ -232,7 +230,7 @@ Now that you know which are the three pilars of a web application's UI, it's tim
 
 10. Take some free air and then create a function to highlight your name in the server response content. Call it right after setting the response inside the div.
 
-11. AJAX: using *[jsonp](#extra-documentation)*, get the response from [http://tweetproxy.ap01.aws.af.cm/search](http://tweetproxy.ap01.aws.af.cm/search) with parameter data "q=html5"
+11. AJAX: do a GET request to the local server [http://localhost:3000/search](http://localhost:3000/search) with parameter data "q=html5" to get the response.
 First log the service response in Chrome's console to analyze data, then display tweets inside another section in the right side of the screen. The <article> element must be used to contain the Tweets.
 For each tweet show: from_user, text, created_at, profile_image_url.
 
