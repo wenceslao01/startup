@@ -1,0 +1,22 @@
+section{
+	text-align:center;
+	display: block;
+}
+
+span{
+	color: purple;
+}
+
+#tweetsect {
+	text-align:left;
+	font-size: 15px;
+	word-wrap: break-word;
+	width: 50%;
+  	margin-left: 50%;
+  	background-color: #E0ECFF;
+  	opacity: 0.6;
+}
+
+article{
+	display: block;
+}
