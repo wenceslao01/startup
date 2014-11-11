@@ -27,8 +27,6 @@
   "summary": "Software engineer with 8+ years of experience working in a variety of industries, including social networking, travel, VoIP, financial trading platforms, and education. Very creative problem solver with strong interpersonal skills, known for consistently coming up with original ideas and being able to clearly communicate them.",
   "firstName": "Yevgeniy",
   "lastName": "Brikman",
-  },
-  "interests": "",
   "memberUrlResources": {
     "values": [
       {
@@ -154,7 +152,8 @@
         "title": "Student webmaster",
         "company": {
           "name": "Cornell Campus Life",
-          "industry": "Information Technology and Services"
+          "industry": "Information Technology and Services",
+          "type": "Public Company"
         },
         "endDate": {
           "month": 8,
