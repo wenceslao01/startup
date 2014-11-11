@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang=UTF8>
+<head>
+<link rel='stylesheet' type='text/css' href='styles/stylesheet.css'>
+<script src='/libs/jquery-2.1.1.js'></script>
+<script src='/libs/handlebars.js'></script>
+<script src='/libs/underscore.js'></script>
+<script src='/libs/dust-full.min.js'></script>    
+</head>
+<body>
+<!--          containers            -->
+<p><h1><span class="head">Handlebars </span><h1></p>
+<article id='result1'></article>
+<p><span class="head">Underscore </span></p>
+<article id='result2'></article>
+<p><span class="head">Dust </span></p>
+<article id='result3'></article>
+
+<!--          HANDLEBARDS TEMPLATE            -->
+<script id='entry-template-handlebars' type='text/x-handlebars-template'>
+        <div><img src={{profile.pictureUrl}} ></div>
+        <div class='overview'><h2>{{profile.firstName}} {{profile.lastName}}s Overview</h2>
+            <dl>
+                <dt>Education</dt>
+                {{#each profile.educations.values}}
+                <dd>{{schoolName}}</dd>
+                {{/each}}
+                <p>Connections: {{profile.connections}}</p>
+                <dt><h4>Websites</h4></dt>
+                {{#each profile.memberUrlResources.values}}
+                <dd><a href={{url}}>{{name}}</a></dd>
+                {{/each}}
+            </dl>
+        </div>
+        <div class='summary'>
+            <div class='headers'><h4>Summary</h4></div>
+            <p>{{profile.summary}}</p>
+            <div class='headers'><h4>Specialties</h4></div>
+            <p>{{profile.specialties}}</p>
+        </div>
+        <div class='skills'>
+            <div class='headers'><h4>Skills</h4></div>    
+            <ul>
+                {{#each profile.skills.values}}
+                <li><h3>{{skill.name}}</h3>
+                    <span>({{proficiency.proficiency}}, {{proficiency.years}} Years experience)</span></li>
+                {{/each}}
+            </ul>   
+        </div>
+        <div class='experience'>
+            <div class='headers'><h4>Experiences</h4></div>
+            {{#each profile.positions.values}}
+            <p><h3>{{title}}</h3>
+            <p>{{company.name}}</p>
+            <p>{{company.type}};{{company.industry}} Industry</p>
+            <p>{{startDate.month}} {{startDate.year}} - {{endDate.month}}/{{endDate.year}}</p>
+            <p>{{summary}}</p>
+            {{/each}}
+        </div>
+    </script>
+
+<!--          UDERSCORE TEMPLATE            -->
+<script id='entry-template-underscore' type='text/x-underscore-template'>
+        <div><img src=<%=profile.pictureUrl %> ></div>
+        <div class='overview'><h2><%=profile.firstName %> <%=profile.lastName %>s Overview</h2>
+            <dl>
+                <dt>Education</dt>
+                <% _.each(profile.educations.values,function(values){%>
+                    <dd><%=values.schoolName %></dd>
+                <%}); %>
+                <p>Connections: <%=profile.connections %></p>
+                <p><h4>Websites</h4></p>
+                <% _.each(profile.memberUrlResources.values,function(values){ %>
+                <dd><a href=<%=values.url%>><%=values.name%></a></dd>
+                <%});%>
+            </dl>
+        </div>
+        <div class='summary'>
+            <div class='headers'><h4>Summary</h4></div>
+            <p><%=profile.summary%></p>
+            <p><h3>Specialties</h3></p>
+            <p><%=profile.specialties%></p>
+        </div>
+        <div class='skills'>
+            <div class='headers'><h4>Skills</h4></div> 
+            <ul>
+                <%_.each(profile.skills.values,function(values){%>
+                <li><h3><%=values.skill.name%></h3>
+                    <span><%=values.proficiency.proficiency%>, <%=values.proficiency.years%> Years experience</span></li>
+                <%});%>
+            </ul>   
+        </div>
+        <div class='experience'>
+            <div class='headers'><h4>Experiences</h4></div>
+            <%_.each(profile.positions.values,function(values){%>
+            <p><h3><%=values.title%></h3>
+            <p><%=values.company.name%></p>
+            <p><%=values.company.type%>;<%=values.company.industry%> Industry</p>
+            <p><%=values.startDate.month%>/<%=values.startDate.year%> - <%=values.endDate.month%>/<%=values.endDate.year%></p>
+            <p><%=values.summary%></p>
+            <%});%>
+        </div>
+    </script>
+
+
+<!--                    DUST TEMPLATE                     -->
+<script id='entry-template-dust' type='text/x-dust-template'>
+    {#profile}    
+        <div><img src={pictureUrl}></div>
+        <div class='overview'><h2>{firstName} {lastName}s Overview</h2>
+            <dl>
+                <dt>Education</dt>
+                {#educations.values}
+                    <dd>{schoolName}</dd>
+                {/educations.values}
+                <p>Connections {connections}</p>
+                <p><h4>Websites</h4></p>
+                {#memberUrlResources.values}
+                    <dd><a href={url}>{name}</a></dd>
+                {/memberUrlResources.values}
+            </dl>
+        </div>
+        <div class='summary'>
+            <div class='headers'><h4>Summary</h4></div>
+            <p>{summary}</p>
+            <p><h3>Specialties</h3></p>
+            <p>{specialties}</p>
+        </div>
+        <div class='skills'>
+            <div class='headers'><h4>Skills</h4></div>
+            <ul>
+                {#skills.values}
+                    <li><h3>{skill.name}</h3>
+                        <span>{proficiency.proficiency}, {proficiency.years} Years experience</span></li>
+                {/skills.values}
+            </ul>   
+        </div>
+        <div class='experience'>
+            <div class='headers'><h4>Experiences</h4></div>
+            {#positions.values}
+                <p><h3>{title}</h3>
+                <p>{company.name}</p>
+                <p>{company.type};{company.industry} Industry</p>
+                <p>{startDate.month}/{startDate.year} - {endDate.month}/{endDate.year}</p>
+                <p>{summary}</p>
+            {/positions.values}    
+        </div>
+    {/profile}
+    </script>
+
+<!--          LOAD            -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+        //Sources of each template
+        var source1=$("#entry-template-handlebars").html();
+        var source2=$("#entry-template-underscore").html();
+        var source3=$("#entry-template-dust").html();
+        //Compilations
+        var compiled=dust.compile(source3,"comp");
+        dust.loadSource(compiled);
+        var template1= Handlebars.compile(source1);
+        var template2= _.template(source2);
+        //Obtaining the data from the JSON file
+        $.getJSON("/libs/profile.json",function(data){
+            $("#result1").html(template1(data));
+            $("#result2").html(template2(data));
+            dust.render("comp",data,function(err,out){
+                $("#result3").html(out);
+            });
+        });
+    });
+    </script>
+</body>
+</html>
