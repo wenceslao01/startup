@@ -1,2 +1,2 @@
-directory=new moviesViewer(directoryData);
+directory=new moviesViewer();
 movies=new Database;
