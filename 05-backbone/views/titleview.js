@@ -1,6 +1,6 @@
 define(["backbone"],function(Backbone){	
 	Title=Backbone.View.extend({
-	  tagName:,
+	  tagName:'li',
 
 	  template:_.template($('#title-template').html()),
 
