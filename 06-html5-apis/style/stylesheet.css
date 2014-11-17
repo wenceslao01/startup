@@ -1,0 +1,14 @@
+button{
+  float:left; 
+}
+
+#dibujo{
+  width:300px;
+  height:200px;
+}
+
+#rectangle{
+  height:100px;
+  width:400px;
+  border:1px solid;
+}
