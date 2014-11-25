@@ -1,0 +1,35 @@
+body{
+	background-color:#D3D3D3;
+}
+
+.border{
+	background-color:#FFF;
+	margin-bottom:2px;
+	padding-left:1px;
+	border-color: #FFF;
+	border-width: 5px;
+	border-radius:10px;
+}
+.retw{
+	font-weight: bold;
+}
+.textos{
+	margin-left:50px;
+}
+.margin-top{
+	margin-top:60px;
+}
+.imgalign{
+	margin-top:6px;
+	float:left;
+}
+.textright{
+	text-align: 	right;
+	vertical-align: text-top;
+	font-size: x-small;
+}
+.right{
+	float: right;
+	background-color: #1A1A1A;
+	color:white;
+}

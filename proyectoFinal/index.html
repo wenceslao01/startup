@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Index</title>
+    <script src="libs/js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="/libs/js/underscore.js"></script>
+    <script src="/libs/js/backbone.js"></script>
+    <script src="/libs/js/require.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div id='menu' class='navbar navbar-inverse navbar-fixed-top'>
+      <div class='container-fluid text-center'>
+        <button id='homebtn' class='btn btn-primary'>Home</button>
+        <button id='blockedusersbtn' class='btn btn-primary'>Blocked Users</button>
+        <button id='trendsbtn' class='btn btn-primary'>Trends</button>
+      </div>
+    </div>
+    <section class='container-fluid margin-top'id='tweets'></section>
+    <section class='container-fluid margin-top'id='trends'></section>
+    <section class='container-fluid margin-top'id='blocks'></section>
+    <script type='text/template' id='timeline'>
+      <div class='retw text-center'id='head'><%=retweet%> <p class='textright'><%=createdat%></p></div> <button class='btn right btn-xs' id='add'>block</button>
+      <img src=<%=user.profile_image_url%> class='img-responsive imgalign'>      
+      <p class='retw' ><%=user.name%> @<%=user.screen_name%>  </p>
+      <p class='textos'><%=text%></p>
+    </script>
+    <script type='text/template' id='detailstemplate'>
+      <div class='retw text-center'id='head'><%=retweet%> <p class='textright'><%=createdat%></p></div><button class='btn btn-xs right' id='add'>block</button>
+      <img src=<%=user.profile_image_url%> class='img-responsive imgalign'>      
+      <p class='retw'><%=user.name%> @<%=user.screen_name%></p>
+      <p><%=text%></p>
+      <p ><%=retweet_count%> RETWEETS <%=favorite_count%> FAVORITES</p>
+    </script>
+    <script type='text/template' id='trendstemplate'>
+      <a><%=name%></a>
+    </script>
+    <script type='text/template' id='blockedtemplate'>
+      <p class='text-center'>@<%=name%><button class='btn btn-sm btn-success floatleft' id='removebtn'>unblock</button></p>
+    </script>
+    <script src="/models/tweetmodel.js"></script>
+    <script src="/views/timelineView.js"></script>
+    <script src="/views/trendview.js"></script>
+    <script src="/views/blockedview.js"></script>
+    <script src="/libs/js/main.js"></script>
+  </body>
+</html>
